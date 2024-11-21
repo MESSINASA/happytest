@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理健康评估测试</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lib/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- 添加全局标题 -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">心理健康评估中心</h1>
+            <p class="site-subtitle">专业的心理健康评估工具</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="theme-switch">
+            <button id="theme-toggle" aria-label="切换主题">
+                <i class="mode-icon"></i>
+            </button>
+        </div>
+
+        <!-- 登录/注册界面 -->
+        <div id="auth-screen" class="screen active">
+            <header>
+                <h1>心理健康评估测试</h1>
+                <p class="subtitle">了解你的心理健康状况，获取专业建议</p>
+            </header>
+            <div class="auth-form">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+                <div class="auth-buttons">
+                    <button onclick="handleLogin()">登录</button>
+                    <button onclick="handleRegister()">注册</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主测试界面 -->
+        <div id="test-screen" class="screen">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="question-container">
+                <h3 id="question-text"></h3>
+                <div id="options-container" class="options">
+                    <!-- 选项将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 结果界面 -->
+        <div id="result-screen" class="screen">
+            <h2>测试结果</h2>
+            <div id="result-container">
+                <!-- 结果将通过JavaScript动态添加 -->
+            </div>
+            <div class="notes-section">
+                <h3>添加笔记</h3>
+                <textarea id="result-notes" placeholder="在这里添加你的想法和感受..."></textarea>
+            </div>
+            <div class="actions">
+                <button onclick="retakeTest()">重新测试</button>
+                <button onclick="showRecommendations()">查看建议</button>
+                <button onclick="saveResult()">保存结果</button>
+                <button onclick="exportResult()">导出结果</button>
+                <button onclick="showHistory()">查看历史</button>
+            </div>
+        </div>
+
+        <!-- 历史记录界面 -->
+        <div id="history-screen" class="screen">
+            <h2>历史记录</h2>
+            <div id="history-container">
+                <!-- 历史记录将通过JavaScript动态添加 -->
+            </div>
+            <div class="actions">
+                <button onclick="startTest()">开始新测试</button>
+                <button onclick="clearHistory()">清除历史</button>
+            </div>
+        </div>
+
+        <!-- 分析界面 -->
+        <div id="analysis-screen" class="screen">
+            <h2>趋势分析</h2>
+            <div class="analysis-controls">
+                <button onclick="showTrendChart()">查看趋势图</button>
+                <button onclick="showComparison()">结果对比</button>
+            </div>
+            <div id="chart-container"></div>
+            <div id="comparison-container" class="hidden">
+                <div class="comparison-selector">
+                    <select id="compare-date-1"></select>
+                    <select id="compare-date-2"></select>
+                </div>
+                <div id="comparison-results"></div>
+            </div>
+        </div>
+
+        <!-- 加载状态指示器 -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loader"></div>
+            <p>加载中...</p>
+        </div>
+
+        <!-- 错误提示框 -->
+        <div id="error-toast" class="toast error-toast">
+            <div class="toast-content">
+                <i class="error-icon"></i>
+                <span class="error-message"></span>
+            </div>
+        </div>
+
+        <footer>
+            <p>注意：本测试仅供参考，如有严重心理问题请及时咨询专业心理医生</p>
+            <p>全国24小时心理危机干预热线：</p>
+            <div class="hotlines">
+                <p>北京：010-82951332</p>
+                <p>上海：021-12320-5</p>
+                <p>深圳：0755-25629459</p>
+                <p>全国统一求助热线：96111</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
